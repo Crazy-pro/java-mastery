@@ -3,45 +3,64 @@ package com.mastery.java.task.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import com.mastery.java.task.services.EmployeeService;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.http.ResponseEntity;
 import com.mastery.java.task.entities.Employee;
+import org.springframework.http.HttpStatus;
 
 import javax.validation.Valid;
 import java.util.List;
 
 @RestController
+@RequestMapping("/employees")
 public class EmployeeController {
 
     @Autowired
     private EmployeeService employeeService;
 
-    @GetMapping("/employees")
-    List<Employee> findAll() {
-        return employeeService.findAll();
+    @GetMapping
+    public ResponseEntity<List<Employee>> findAll() {
+        final List<Employee> employees = employeeService.findAll();
+        return (employees != null)
+                ? new ResponseEntity<>(employees, HttpStatus.OK)
+                : new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
-    @GetMapping("/employees/{employeeId}")
-    Employee findById(@PathVariable Long employeeId) {
-        return employeeService.findById(employeeId);
+    @GetMapping("/{employeeId}")
+    public ResponseEntity<Employee> findById(@PathVariable Long employeeId) {
+        final Employee employee = employeeService.findById(employeeId);
+        return (employee != null)
+                ? new ResponseEntity<>(employee, HttpStatus.OK)
+                : new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
-    @PostMapping("/employees")
-    Employee create(@RequestBody @Valid Employee newEmployee) {
-        return employeeService.create(newEmployee);
+    @PostMapping
+    public ResponseEntity<Employee> create(@RequestBody @Valid Employee newEmployee) {
+        employeeService.create(newEmployee);
+        return (newEmployee != null)
+                ? new ResponseEntity<>(newEmployee, HttpStatus.CREATED)
+                : new ResponseEntity<>(HttpStatus.BAD_REQUEST);
     }
 
-    @PutMapping("/employees/{employeeId}")
-    Employee update(@RequestBody @Valid Employee newEmployee, @PathVariable Long employeeId) {
-        return employeeService.update(newEmployee, employeeId);
+    @PutMapping("/{employeeId}")
+    public ResponseEntity<Employee> update(@RequestBody @Valid Employee newEmployee, @PathVariable Long employeeId) {
+        employeeService.update(newEmployee, employeeId);
+        return (newEmployee != null)
+                ? new ResponseEntity<>(newEmployee, HttpStatus.OK)
+                : new ResponseEntity<>(HttpStatus.NOT_MODIFIED);
     }
 
-    @DeleteMapping("/employees/{employeeId}")
-    void deleteById(@PathVariable Long employeeId) {
+    @DeleteMapping("/{employeeId}")
+    public ResponseEntity<?> deleteById(@PathVariable Long employeeId) {
         employeeService.deleteById(employeeId);
+        return (employeeId != null)
+                ? new ResponseEntity<>(HttpStatus.NO_CONTENT)
+                : new ResponseEntity<>(HttpStatus.BAD_REQUEST);
     }
 
-    @DeleteMapping("/employees")
-    void deleteAll() {
+    @DeleteMapping
+    public ResponseEntity<?> deleteAll() {
         employeeService.deleteAll();
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
 }

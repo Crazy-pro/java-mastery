@@ -3,8 +3,7 @@ package com.mastery.java.task.entities;
 import javax.persistence.*;
 import java.util.Objects;
 
-@Entity
-@Table(name = "employees")
+@Entity(name = "employees")
 public class Employee {
 
     @Id

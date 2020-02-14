@@ -4,7 +4,6 @@ import com.mastery.java.task.exceptions.EmployeeNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import com.mastery.java.task.repositories.EmployeeRepository;
 import com.mastery.java.task.entities.Employee;
-
 import org.springframework.stereotype.Service;
 
 import java.util.logging.Level;
@@ -70,12 +69,16 @@ public class EmployeeService {
                     throw new EmployeeNotFoundException("Employee with id " + employeeId + " doesn't exist!");
                 }
         );
-
     }
 
     public void deleteAll() {
         employeeRepository.deleteAll();
         LOGGER.info("Employees have been removed from the database");
+    }
+
+    public void updateJobTitleByDepartmentId(Long departmentId, String jobTitle) {
+        employeeRepository.updateJobTitleByDepartmentId(departmentId, jobTitle);
+        LOGGER.info("The job title of employees from the department with id " + departmentId + " has been changed to " + jobTitle);
     }
 
 }

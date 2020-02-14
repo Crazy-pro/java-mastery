@@ -16,6 +16,11 @@ public class Application {
     public static Logger LOGGER = Logger.getLogger("LOGGER");
 
     public static void main(String... args) {
+        createLogFile();
+        SpringApplication.run(Application.class, args);
+    }
+
+    private static void createLogFile() {
         try {
             SimpleDateFormat format = new SimpleDateFormat("M-d_HHmmss");
             FileHandler fileHandler = new FileHandler("./logs/LogFile_" + format.format(Calendar.getInstance().getTime()) + ".log");
@@ -25,7 +30,6 @@ public class Application {
         } catch (SecurityException | IOException ex) {
             throw new RuntimeException("Problems with creating the log file");
         }
-        SpringApplication.run(Application.class, args);
     }
 
 }

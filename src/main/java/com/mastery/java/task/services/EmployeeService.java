@@ -19,7 +19,7 @@ public class EmployeeService {
 
     public Employee create(Employee newEmployee) {
         Employee createdEmployee = employeeRepository.save(newEmployee);
-        LOGGER.info("A new employee is created in the database");
+        LOGGER.info("A new employee with id " + newEmployee.getEmployeeId() + " is created in the database");
         return createdEmployee;
     }
 

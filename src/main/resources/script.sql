@@ -1,8 +1,13 @@
-CREATE SEQUENCE hibernate_sequence START 1 INCREMENT 1;
-CREATE SEQUENCE employee_id_seq;
+DROP DATABASE IF EXISTS employeedb;
+
+DROP SCHEMA IF EXISTS employeedb;
+
+CREATE DATABASE IF NOT EXISTS employeedb;
+
+USE employeedb;
 
 CREATE TABLE IF NOT EXISTS employees (
-    employee_id     INTEGER(10)     NOT NULL   DEFAULT NEXTVAL('employee_id_seq'),
+    employee_id     INTEGER(10)     NOT NULL   AUTO_INCREMENT,
     first_name      VARCHAR(255)    NOT NULL,
     last_name       VARCHAR(255)    NOT NULL,
     department_id   INTEGER(10)     NOT NULL,

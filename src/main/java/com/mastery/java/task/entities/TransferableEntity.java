@@ -5,8 +5,11 @@ import java.util.Objects;
 public class TransferableEntity {
 
     private Long departmentId;
-
     private String jobTitle;
+
+    public TransferableEntity() {
+
+    }
 
     public TransferableEntity(Long departmentId, String jobTitle) {
         this.departmentId = departmentId;
@@ -45,7 +48,7 @@ public class TransferableEntity {
 
     @Override
     public String toString() {
-        return String.format("Department Id: %d\nJob Title: %s\n\n", departmentId, jobTitle);
+        return String.format("Department Id: %d\nJob Title: %s\n", departmentId, jobTitle);
     }
 
 }

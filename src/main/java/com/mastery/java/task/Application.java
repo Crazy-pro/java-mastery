@@ -1,7 +1,10 @@
 package com.mastery.java.task;
 
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import com.mastery.java.task.entities.TransferableEntity;
+import org.springframework.context.ApplicationContext;
 import org.springframework.boot.SpringApplication;
+import org.springframework.jms.core.JmsTemplate;
 
 import java.util.logging.SimpleFormatter;
 import java.util.logging.FileHandler;
@@ -17,7 +20,10 @@ public class Application {
 
     public static void main(String... args) {
         createLogFile();
-        SpringApplication.run(Application.class, args);
+        ApplicationContext context = SpringApplication.run(Application.class, args);
+        JmsTemplate jmsTemplate = context.getBean(JmsTemplate.class);
+        System.out.println("Message sent!");
+        jmsTemplate.convertAndSend("MessageQueue", new TransferableEntity(1L, "Java Dev"));
     }
 
     private static void createLogFile() {
@@ -28,7 +34,7 @@ public class Application {
             fileHandler.setFormatter(formatter);
             LOGGER.addHandler(fileHandler);
         } catch (SecurityException | IOException ex) {
-            throw new RuntimeException("Problems with creating the log file");
+            throw new RuntimeException("Problems with creating the log file!");
         }
     }
 

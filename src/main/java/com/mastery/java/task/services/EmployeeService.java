@@ -3,19 +3,25 @@ package com.mastery.java.task.services;
 import com.mastery.java.task.exceptions.EmployeeNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import com.mastery.java.task.repositories.EmployeeRepository;
+import com.mastery.java.task.entities.TransferableEntity;
+import com.mastery.java.task.jms.MessageSender;
 import com.mastery.java.task.entities.Employee;
 import org.springframework.stereotype.Service;
+import org.slf4j.LoggerFactory;
+import org.slf4j.Logger;
 
-import java.util.logging.Level;
 import java.util.List;
-
-import static com.mastery.java.task.Application.LOGGER;
 
 @Service
 public class EmployeeService {
 
+    private static final Logger LOGGER = LoggerFactory.getLogger(EmployeeService.class);
+
     @Autowired
     private EmployeeRepository employeeRepository;
+
+    @Autowired
+    private MessageSender messageSender;
 
     public Employee create(Employee newEmployee) {
         Employee createdEmployee = employeeRepository.save(newEmployee);
@@ -37,7 +43,7 @@ public class EmployeeService {
                     return updatedEmployee;
                 })
                 .orElseThrow(() -> {
-                    LOGGER.log(Level.WARNING, "Employee with id " + employeeId + " doesn't exist!");
+                    LOGGER.warn("Employee with id " + employeeId + " doesn't exist!");
                     return new EmployeeNotFoundException("Employee with id " + employeeId + " doesn't exist!");
                 });
     }
@@ -51,7 +57,7 @@ public class EmployeeService {
     public Employee findById(Long employeeId) {
         Employee employee = employeeRepository.findById(employeeId)
                 .orElseThrow(() -> {
-                    LOGGER.log(Level.WARNING, "Employee with id " + employeeId + " doesn't exist!");
+                    LOGGER.warn("Employee with id " + employeeId + " doesn't exist!");
                     return new EmployeeNotFoundException("Employee with id " + employeeId + " doesn't exist!");
                 });
         LOGGER.info("Employee with id " + employeeId + " was returned from the database");
@@ -65,7 +71,7 @@ public class EmployeeService {
                     LOGGER.info("Employee with id " + employeeId + " has been deleted");
                 },
                 () -> {
-                    LOGGER.log(Level.WARNING, "Employee with id " + employeeId + " doesn't exist!");
+                    LOGGER.warn("Employee with id " + employeeId + " doesn't exist!");
                     throw new EmployeeNotFoundException("Employee with id " + employeeId + " doesn't exist!");
                 }
         );
@@ -77,8 +83,17 @@ public class EmployeeService {
     }
 
     public void updateJobTitleByDepartmentId(Long departmentId, String jobTitle) {
-        employeeRepository.updateJobTitleByDepartmentId(departmentId, jobTitle);
-        LOGGER.info("The job title of employees from the department with id " + departmentId + " has been changed to " + jobTitle);
+        employeeRepository.findByDepartmentId(departmentId).ifPresentOrElse(
+                ignored -> {
+                    employeeRepository.updateJobTitleByDepartmentId(departmentId, jobTitle);
+                    LOGGER.info("The job title of employees from the department with id " + departmentId + " has been changed to " + jobTitle);
+                },
+                () -> LOGGER.warn("Employees with department id " + departmentId + " don't exist!")
+        );
+    }
+
+    public void handleSendMessage(TransferableEntity entity) {
+        messageSender.sendMessage(entity);
     }
 
 }

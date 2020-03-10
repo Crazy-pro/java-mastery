@@ -8,8 +8,13 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 import com.mastery.java.task.entities.Employee;
 
+import java.util.Optional;
+import java.util.List;
+
 @Repository
 public interface EmployeeRepository extends CrudRepository<Employee, Long> {
+
+    Optional<List<Employee>> findByDepartmentId(@Param("departmentId") Long departmentId);
 
     @Modifying
     @Transactional

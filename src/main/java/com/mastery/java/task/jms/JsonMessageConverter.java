@@ -5,11 +5,15 @@ import org.springframework.jms.support.converter.MessageConverter;
 import org.springframework.beans.factory.annotation.Autowired;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.stereotype.Component;
+import org.slf4j.LoggerFactory;
+import org.slf4j.Logger;
 
 import javax.jms.*;
 
 @Component
 public class JsonMessageConverter implements MessageConverter {
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(JsonMessageConverter.class);
 
     @Autowired
     private ObjectMapper mapper;
@@ -20,6 +24,7 @@ public class JsonMessageConverter implements MessageConverter {
         try {
             json = mapper.writeValueAsString(object);
         } catch (Exception ex) {
+            LOGGER.error("Message cannot be parsed: " + ex);
             throw new MessageConversionException("Message cannot be parsed: ", ex);
         }
         TextMessage message = session.createTextMessage();

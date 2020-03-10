@@ -1,6 +1,7 @@
 package com.mastery.java.task.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import com.mastery.java.task.entities.TransferableEntity;
 import com.mastery.java.task.services.EmployeeService;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.http.ResponseEntity;
@@ -44,15 +45,19 @@ public class EmployeeController {
     }
 
     @PutMapping("/{employeeId}")
-    @ApiResponses(value = {
-            @ApiResponse(code = 304, message = "Information about employees hasn't been updated"),
-            @ApiResponse(code = 404, message = "Employee not found")
-    })
+    @ApiResponses(@ApiResponse(code = 404, message = "Employee not found"))
     public ResponseEntity<Employee> update(@RequestBody @Valid Employee newEmployee, @PathVariable Long employeeId) {
         employeeService.update(newEmployee, employeeId);
         return (newEmployee != null)
                 ? new ResponseEntity<>(newEmployee, HttpStatus.OK)
                 : new ResponseEntity<>(HttpStatus.NOT_MODIFIED);
+    }
+
+    @PutMapping
+    @ApiResponses(@ApiResponse(code = 202, message = "Accepted"))
+    public ResponseEntity<?> updateJobTitleByDepartmentId(@RequestBody @Valid TransferableEntity entity) {
+        employeeService.handleSendMessage(entity);
+        return new ResponseEntity<>(entity, HttpStatus.ACCEPTED);
     }
 
     @DeleteMapping("/{employeeId}")

@@ -21,7 +21,7 @@ public class MessageListener {
 
     @JmsListener(destination = "MessageQueue")
     public void receiveMessage(final TransferableEntity entity) {
-        LOGGER.info("Received message: \n" + entity);
+        LOGGER.debug("Received message: \n" + entity);
         employeeService.updateJobTitleByDepartmentId(entity.getDepartmentId(), entity.getJobTitle());
     }
 

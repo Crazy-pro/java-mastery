@@ -19,7 +19,7 @@ public class MessageSender {
     private JmsTemplate jmsTemplate;
 
     public void sendMessage(final TransferableEntity entity) {
-        LOGGER.info("Data sent to message queue! \n" + entity);
+        LOGGER.debug("Data sent to message queue! \n" + entity);
         jmsTemplate.convertAndSend("MessageQueue", entity);
     }
 

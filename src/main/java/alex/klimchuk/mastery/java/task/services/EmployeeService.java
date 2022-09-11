@@ -28,7 +28,7 @@ public class EmployeeService {
 
     public Employee create(Employee newEmployee) {
         Employee createdEmployee = employeeRepository.save(newEmployee);
-        LOGGER.info("A new employee with id " + newEmployee.getEmployeeId() + " is created in the database");
+        LOGGER.debug("A new employee with id " + newEmployee.getEmployeeId() + " is created in the database");
         return createdEmployee;
     }
 
@@ -42,7 +42,7 @@ public class EmployeeService {
                     employee.setGender(newEmployee.getGender());
                     employee.setDateOfBirth(newEmployee.getDateOfBirth());
                     Employee updatedEmployee = employeeRepository.save(employee);
-                    LOGGER.info("Employee with id " + employeeId + " was updated");
+                    LOGGER.debug("Employee with id " + employeeId + " was updated");
                     return updatedEmployee;
                 })
                 .orElseThrow(() -> {
@@ -53,7 +53,7 @@ public class EmployeeService {
 
     public List<Employee> findAll() {
         List<Employee> employees = (List<Employee>) employeeRepository.findAll();
-        LOGGER.info("Employees were returned from the database");
+        LOGGER.debug("Employees were returned from the database");
         return employees;
     }
 
@@ -63,7 +63,7 @@ public class EmployeeService {
                     LOGGER.warn("Employee with id " + employeeId + " doesn't exist!");
                     return new EmployeeNotFoundException("Employee with id " + employeeId + " doesn't exist!");
                 });
-        LOGGER.info("Employee with id " + employeeId + " was returned from the database");
+        LOGGER.debug("Employee with id " + employeeId + " was returned from the database");
         return employee;
     }
 
@@ -71,7 +71,7 @@ public class EmployeeService {
         employeeRepository.findById(employeeId).ifPresentOrElse(
                 ignored -> {
                     employeeRepository.deleteById(employeeId);
-                    LOGGER.info("Employee with id " + employeeId + " has been deleted");
+                    LOGGER.debug("Employee with id " + employeeId + " has been deleted");
                 },
                 () -> {
                     LOGGER.warn("Employee with id " + employeeId + " doesn't exist!");
@@ -82,14 +82,14 @@ public class EmployeeService {
 
     public void deleteAll() {
         employeeRepository.deleteAll();
-        LOGGER.info("Employees have been removed from the database");
+        LOGGER.debug("Employees have been removed from the database");
     }
 
     public void updateJobTitleByDepartmentId(Long departmentId, String jobTitle) {
         employeeRepository.findByDepartmentId(departmentId).ifPresentOrElse(
                 ignored -> {
                     employeeRepository.updateJobTitleByDepartmentId(departmentId, jobTitle);
-                    LOGGER.info("The job title of employees from the department with id " + departmentId + " has been changed to " + jobTitle);
+                    LOGGER.debug("The job title of employees from the department with id " + departmentId + " has been changed to " + jobTitle);
                 },
                 () -> LOGGER.warn("Employees with department id " + departmentId + " don't exist!")
         );

@@ -34,48 +34,48 @@ public class EmployeeControllerTest {
     @MockBean
     private EmployeeService employeeServiceMock;
 
-    private ObjectMapper mapper = new ObjectMapper();
+    private final ObjectMapper MAPPER = new ObjectMapper();
 
     @Test
-    public void findAllTest() throws Exception {
+    public void testFindAll() throws Exception {
         List<Employee> employeesFromMock = getEmployees();
         Mockito.when(employeeServiceMock.findAll()).thenReturn(employeesFromMock);
         mockMvc.perform(get("/employees")
-                .content(mapper.writeValueAsString(employeesFromMock))
+                .content(MAPPER.writeValueAsString(employeesFromMock))
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk());
     }
 
     @Test
-    public void findByIdTest() throws Exception {
+    public void testFindById() throws Exception {
         Employee employeeFromMock = getEmployees().get(0);
         Mockito.when(employeeServiceMock.findById(1L)).thenReturn(employeeFromMock);
         mockMvc.perform(get("/employees/1")
-                .content(mapper.writeValueAsString(employeeFromMock))
+                .content(MAPPER.writeValueAsString(employeeFromMock))
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk());
     }
 
     @Test
-    public void createTest() throws Exception {
+    public void testCreate() throws Exception {
         Employee employeeFromMock = new Employee();
         employeeFromMock.setFirstName("EmployeeForTest");
         Employee employee = new Employee();
         employee.setFirstName(employeeFromMock.getFirstName());
         Mockito.when(employeeServiceMock.create(any(Employee.class))).thenReturn(employee);
         mockMvc.perform(post("/employees")
-                .content(mapper.writeValueAsString(employeeFromMock))
+                .content(MAPPER.writeValueAsString(employeeFromMock))
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().is2xxSuccessful())
                 .andExpect(jsonPath("$.firstName").value(employeeFromMock.getFirstName()));
     }
 
     @Test
-    public void updateTest() throws Exception {
+    public void testUpdate() throws Exception {
         Employee employeeFromMock = getEmployees().get(0);
         Mockito.when(employeeServiceMock.update(any(Employee.class), any(Long.class))).thenReturn(employeeFromMock);
         mockMvc.perform(put("/employees/1")
-                .content(mapper.writeValueAsString(employeeFromMock))
+                .content(MAPPER.writeValueAsString(employeeFromMock))
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().is2xxSuccessful())
                 .andExpect(jsonPath("$.firstName").value(employeeFromMock.getFirstName()));

@@ -40,7 +40,7 @@ public class EmployeeServiceTest {
     }
 
     @Test
-    public void createTest() {
+    public void testCreate() {
         Employee employeeFromMock = getEmployees().get(0);
         Mockito.when(employeeRepositoryMock.save(any(Employee.class))).thenReturn(employeeFromMock);
         Employee employee = employeeService.create(employeeFromMock);
@@ -49,7 +49,7 @@ public class EmployeeServiceTest {
     }
 
     @Test
-    public void updateThrowsEmployeeNotFoundExceptionTest() {
+    public void testUpdateThrowsEmployeeNotFoundException() {
         Employee employeeFromMock = getEmployees().get(0);
         Mockito.when(employeeRepositoryMock.findById(null)).thenThrow(EmployeeNotFoundException.class);
         try {
@@ -62,7 +62,7 @@ public class EmployeeServiceTest {
     }
 
     @Test
-    public void updateNormalBehaviorTest() {
+    public void testUpdateNormalBehavior() {
         Employee employeeFromMock = getEmployees().get(0);
         Mockito.when(employeeRepositoryMock.findById(1L)).thenReturn(Optional.ofNullable(employeeFromMock));
         Mockito.when(employeeRepositoryMock.save(any(Employee.class))).thenReturn(employeeFromMock);
@@ -73,7 +73,7 @@ public class EmployeeServiceTest {
     }
 
     @Test
-    public void findAllTest() {
+    public void testFindAll() {
         List<Employee> employeesFromMock = getEmployees();
         Mockito.when(employeeRepositoryMock.findAll()).thenReturn(employeesFromMock);
         List<Employee> employees = employeeService.findAll();
@@ -83,7 +83,7 @@ public class EmployeeServiceTest {
     }
 
     @Test
-    public void findByIdTest() {
+    public void testFindById() {
         Employee employeeFromMock = getEmployees().get(0);
         Mockito.when(employeeRepositoryMock.findById(1L)).thenReturn(Optional.of(employeeFromMock));
         Employee employee = employeeService.findById(1L);

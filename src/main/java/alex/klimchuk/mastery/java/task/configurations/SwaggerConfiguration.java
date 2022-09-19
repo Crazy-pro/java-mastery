@@ -44,7 +44,7 @@ public class SwaggerConfiguration {
                 .globalResponseMessage(RequestMethod.PUT, globalResponses)
                 .globalResponseMessage(RequestMethod.DELETE, globalResponses)
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("com.mastery.java.task.controllers"))
+                .apis(RequestHandlerSelectors.basePackage("alex.klimchuk.mastery.java.task.controllers"))
                 .paths(PathSelectors.any())
                 .build();
     }

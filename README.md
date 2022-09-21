@@ -1,6 +1,6 @@
 ### Practical task:
 - Using the provided skeleton, implement the REST service.
-- Useful link: https://spring.io/guides/gs/rest-service/
+- Useful link: https://spring.io/guides/gs/rest-service
 - In addition you could use Swagger to provide API documentation.
   
   
@@ -10,8 +10,8 @@
 2. Run ActiveMq Docker Container in terminal using instructions below:
    - docker pull rmohr/activemq
    - docker run -p 61616:61616 -p 8161:8161 rmohr/activemq
-3. Run MySQL Docker Container or just use the PC client MySQL Workbench:
-4. Execute script.sql
+3. Run MySQL Docker Container or just use the PC client MySQL Workbench.
+4. Execute script.sql.
 5. Run the application and check end-points work using Postman client or this URL:
    - http://localhost:8080/swagger-ui.html
   

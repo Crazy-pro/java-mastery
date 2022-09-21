@@ -26,5 +26,5 @@
 - IDE: IntelliJ IDEA;
 - Database: MySQL;
 - Message Broker: ActiveMQ;
-- Tools: JUnit, Mockito, Lombok, Postman, Swagger, Maven, Git, Docker, JDBC, JPA, JMS, HTTPs, XML, YAML, JSON;
+- Tools: JUnit 4, Mockito, Lombok, Postman, Swagger 2, Maven, Git, Docker, JDBC, JPA, JMS, HTTPs, XML, YAML, JSON;
 - Others: GitHub.

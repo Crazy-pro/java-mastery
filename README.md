@@ -20,13 +20,20 @@ In addition you could use Swagger to provide API documentation.
   
   
 ### Technologies:
-● Programming language: Java 9;
-● Frameworks:
-   - Spring (Boot, Core, Data, Web, Test);
-   - Hibernate.
-● Query language: SQL;
-● IDE: IntelliJ IDEA;
-● Database: MySQL;
-● Message Broker: ActiveMQ;
-● Tools: JUnit, Mockito, Lombok, Postman, Swagger, Maven, Git, Docker, JDBC, JPA, JMS, HTTPs, XML, YAML, JSON;
-● Others: GitHub.
+### ● Programming language: 
+    - Java 9;
+### ● Frameworks:
+    - Spring (Boot, Core, Data, Web, Test);
+    - Hibernate.
+### ● Query language: 
+    - SQL;
+### ● IDE: 
+    - IntelliJ IDEA;
+### ● Database:
+    - MySQL;
+### ● Message Broker:
+    - ActiveMQ;
+### ● Tools: 
+    - JUnit, Mockito, Lombok, Postman, Swagger, Maven, Git, Docker, JDBC, JPA, JMS, HTTPs, XML, YAML, JSON;
+### ● Others: 
+    - GitHub.

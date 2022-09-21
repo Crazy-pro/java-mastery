@@ -26,18 +26,20 @@ import java.sql.SQLException;
 @RestControllerAdvice
 public class ControllerExceptionHandler extends ResponseEntityExceptionHandler {
 
-    @ExceptionHandler(HttpMessageNotReadableException.class)
+    @Override
     public ResponseEntity<Object> handleHttpMessageNotReadable(final HttpMessageNotReadableException ex,
-                                                               final HttpHeaders headers, final WebRequest request) {
+                                                               final HttpHeaders headers,
+                                                               final HttpStatus status, final WebRequest request) {
         final String responseBody = "Http message not readable exception";
-        return handleExceptionInternal(ex, responseBody, headers, HttpStatus.BAD_REQUEST, request);
+        return handleExceptionInternal(ex, responseBody, headers, status, request);
     }
 
-    @ExceptionHandler(MethodArgumentNotValidException.class)
+    @Override
     public ResponseEntity<Object> handleMethodArgumentNotValid(final MethodArgumentNotValidException ex,
-                                                               final HttpHeaders headers, final WebRequest request) {
+                                                               final HttpHeaders headers,
+                                                               final HttpStatus status, final WebRequest request) {
         final String responseBody = "Method argument not valid exception";
-        return handleExceptionInternal(ex, responseBody, headers, HttpStatus.BAD_REQUEST, request);
+        return handleExceptionInternal(ex, responseBody, headers, status, request);
     }
 
     @ExceptionHandler(ConstraintViolationException.class)

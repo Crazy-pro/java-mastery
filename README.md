@@ -1,3 +1,8 @@
+### Simple web application
+Test task for Godel Technologies Europe
+
+
+
 ### Practical task:
 - Using the provided skeleton, implement the REST service.
 - Useful link: https://spring.io/guides/gs/rest-service

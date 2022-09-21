@@ -20,8 +20,8 @@ In addition you could use Swagger to provide API documentation.
   
   
 ### Technologies:
-### ● Programming language: Java 9;
-### ● Frameworks:
+● Programming language: Java 9;
+● Frameworks:
     - Spring (Boot, Core, Data, Web, Test);
     - Hibernate.
 ### ● Query language: 

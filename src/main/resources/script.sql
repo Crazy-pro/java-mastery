@@ -1,10 +1,10 @@
-DROP DATABASE IF EXISTS employeedb;
+DROP DATABASE IF EXISTS employee_db;
 
-DROP SCHEMA IF EXISTS employeedb;
+DROP SCHEMA IF EXISTS employee_db;
 
-CREATE DATABASE IF NOT EXISTS employeedb;
+CREATE DATABASE IF NOT EXISTS employee_db;
 
-USE employeedb;
+USE employee_db;
 
 CREATE TABLE IF NOT EXISTS employees (
     employee_id     INTEGER(10)     NOT NULL   AUTO_INCREMENT,

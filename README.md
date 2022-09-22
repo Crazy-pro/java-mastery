@@ -1,5 +1,5 @@
 ### Simple web application
-Test task for Godel Technologies Europe
+Test task for Godel Technologies Europe.
 
 
 
@@ -25,8 +25,8 @@ Test task for Godel Technologies Europe
 ### Technologies:
 - Programming language: Java 9;
 - Frameworks:
-   - Spring (Boot, Core, Data, Web, Test);
-   - Hibernate.
+  - Spring (Boot, Core, Data, Web, Test);
+  - Hibernate.
 - Query language: SQL;
 - IDE: IntelliJ IDEA;
 - Database: MySQL;

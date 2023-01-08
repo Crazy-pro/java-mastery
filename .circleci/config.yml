@@ -14,10 +14,13 @@ jobs:
           command: mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
       - run:
           name: Run tests and collect coverage
-          command: mvn -B test
-      - codecov/upload:
-          file: './codecov.yml'
-          token: 95836e57-e69a-44b1-9634-043971712e3d
+          command: mvn -B test cobertura:cobertura
+      - store_test_results:
+          path: target/surefire-reports
+      - run:
+          name: Send to CodeCov
+          command: bash <(curl -s https://codecov.io/bash)
+      - codecov/upload
 
 workflow:
   version: 2.1

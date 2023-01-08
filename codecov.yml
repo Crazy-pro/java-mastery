@@ -19,5 +19,4 @@ comment:
   layout: "reach, diff, flags, tree"
   behavior: default
   require_changes: no
-fixes:
-  - "/home/circleci/::"
+token: 95836e57-e69a-44b1-9634-043971712e3d

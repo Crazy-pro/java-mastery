@@ -1,4 +1,4 @@
-package alex.klimchuk.mastery.java.task.configurations;
+package alex.klimchuk.mastery.java.task.configs;
 
 import org.springframework.messaging.handler.annotation.support.DefaultMessageHandlerMethodFactory;
 import org.springframework.messaging.converter.MappingJackson2MessageConverter;
@@ -14,7 +14,7 @@ import org.springframework.context.annotation.Bean;
  */
 @EnableJms
 @Configuration
-public class ApplicationConfiguration implements JmsListenerConfigurer {
+public class ApplicationConfig implements JmsListenerConfigurer {
 
     @Bean
     public DefaultMessageHandlerMethodFactory handlerMethodFactory() {

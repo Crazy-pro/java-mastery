@@ -6,7 +6,7 @@ Test task for Godel Technologies Europe.
 ### Practical task:
 - Using the provided skeleton, implement the REST service.
 - Useful link: https://spring.io/guides/gs/rest-service
-- In addition you could use Swagger to provide API documentation.
+- In addition, you could use Swagger to provide API documentation.
   
   
   
@@ -25,11 +25,14 @@ Test task for Godel Technologies Europe.
 ### Technologies:
 - Programming language: Java 9;
 - Frameworks:
-  - Spring (Boot, Core, Data, Web, Test);
+  - Spring (Boot, Core, Data, WebMVC, Test);
   - Hibernate.
 - Query language: SQL;
 - IDE: IntelliJ IDEA;
 - Database: MySQL;
 - Message Broker: ActiveMQ;
 - Tools: JUnit 4, Mockito, Lombok, Postman, Swagger 2, Maven, Git, Docker, JDBC, JPA, JMS, HTTPs, XML, YAML, JSON;
-- Others: GitHub.
+- Others: GitHub, CircleCI, CodeCov.
+
+[![CircleCI](https://circleci.com/gh/Crazy-pro/simple-web-app.svg?style=svg)](https://app.circleci.com/gh/Crazy-pro/simple-web-app)
+[![CodeCov](https://codecov.io/gh/Crazy-pro/simple-web-app/branch/master/graph/badge.svg)](https://codecov.io/gh/Crazy-pro/simple-web-app)

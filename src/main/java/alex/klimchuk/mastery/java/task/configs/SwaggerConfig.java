@@ -1,4 +1,4 @@
-package alex.klimchuk.mastery.java.task.configurations;
+package alex.klimchuk.mastery.java.task.configs;
 
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 import springfox.documentation.builders.RequestHandlerSelectors;
@@ -19,7 +19,7 @@ import java.util.List;
  */
 @Configuration
 @EnableSwagger2
-public class SwaggerConfiguration {
+public class SwaggerConfig {
 
     @Bean
     public Docket api() {

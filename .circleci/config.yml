@@ -17,6 +17,7 @@ jobs:
           command: mvn -B test
       - codecov/upload:
           file: './codecov.yml'
+          token: 95836e57-e69a-44b1-9634-043971712e3d
 
 workflow:
   version: 2.1

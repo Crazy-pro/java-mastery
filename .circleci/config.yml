@@ -14,7 +14,7 @@ jobs:
           command: mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
       - run:
           name: Run tests and collect coverage
-          command: mvn -B test cobertura:cobertura
+          command: mvn integration-test cobertura:cobertura
       - store_test_results:
           path: target/surefire-reports
       - run:

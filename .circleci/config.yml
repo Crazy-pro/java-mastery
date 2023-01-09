@@ -5,7 +5,7 @@ orbs:
 jobs:
   build:
     docker:
-      - image: circleci/openjdk:9-jdk
+      - image: cimg/openjdk:18.0.2
     steps:
       - checkout
       - run:
@@ -16,8 +16,8 @@ jobs:
           command: mvn -B test
       - codecov/upload
 
-workflows:
+workflow:
+  version: 2.1
   build-test:
     jobs:
       - build
-      

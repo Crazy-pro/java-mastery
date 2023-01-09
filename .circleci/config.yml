@@ -19,8 +19,9 @@ jobs:
       - sonarcloud/scan
 
 workflows:
-  main:
+  build-test:
     jobs:
-      - build:
-          context: sonarcloud
+      - build
+#      - build:
+#          context: sonarcloud
       

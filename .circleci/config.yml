@@ -1,6 +1,6 @@
 version: 2.1
 orbs:
-  codecov: codecov/codecov@3.2.4
+  codecov: codecov/codecov@3
   sonarqube: syneki/sonarqube@1.0.0
 
 jobs:
@@ -15,9 +15,7 @@ jobs:
       - run:
           name: Run tests and collect coverage
           command: mvn -B test
-      - run:
-          name: Upload coverage to Codecov
-          command: codecov/codecov-action@3.2.4
+      - codecov/upload
 
 workflow:
   version: 2.1

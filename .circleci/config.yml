@@ -1,7 +1,6 @@
 version: 2.1
 orbs:
   codecov: codecov/codecov@3
-  sonarcloud: sonarsource/sonarcloud@1.1.1
 
 jobs:
   build:
@@ -16,12 +15,9 @@ jobs:
           name: Run tests and collect coverage
           command: mvn -B test
       - codecov/upload
-      - sonarcloud/scan
 
 workflows:
   build-test:
     jobs:
       - build
-#      - build:
-#          context: sonarcloud
       

@@ -11,6 +11,9 @@
     <properties>
         <maven.compiler.source>1.9</maven.compiler.source>
         <maven.compiler.target>1.9</maven.compiler.target>
+        <sonar.organization>crazy-pro</sonar.organization>
+        <sonar.host.url>https://sonarcloud.io</sonar.host.url>
+        <argLine>-Djava.security.egd=file:/dev/./urandom</argLine>
     </properties>
 
     <parent>
@@ -20,29 +23,24 @@
     </parent>
 
     <dependencies>
-        <!--Spring Boot-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
-        <!--CRUDRepository-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-jpa</artifactId>
         </dependency>
-        <!--Tests-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
-        <!--MySQL-->
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
-            <version>8.0.28</version>
+            <version>8.0.30</version>
         </dependency>
-        <!--Swagger-->
         <dependency>
             <groupId>io.springfox</groupId>
             <artifactId>springfox-swagger2</artifactId>
@@ -53,7 +51,6 @@
             <artifactId>springfox-swagger-ui</artifactId>
             <version>2.9.2</version>
         </dependency>
-        <!--ActiveMQ-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-activemq</artifactId>
@@ -62,7 +59,6 @@
             <groupId>org.apache.activemq</groupId>
             <artifactId>activemq-broker</artifactId>
         </dependency>
-        <!--Lombok-->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
@@ -119,16 +115,12 @@
                     <autoVersionSubmodules>true</autoVersionSubmodules>
                 </configuration>
             </plugin>
-<!--            <plugin>-->
-<!--                <groupId>org.apache.maven.plugins</groupId>-->
-<!--                <artifactId>maven-surefire-plugin</artifactId>-->
-<!--                <version>2.22.2</version>-->
-<!--                <configuration>-->
-<!--                    <argLine>-->
-<!--                        &#45;&#45;illegal-access=permit-->
-<!--                    </argLine>-->
-<!--                </configuration>-->
-<!--            </plugin>-->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.22.2</version>
+                <configuration></configuration>
+            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-failsafe-plugin</artifactId>

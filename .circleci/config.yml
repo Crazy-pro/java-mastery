@@ -16,7 +16,9 @@ jobs:
           name: Run tests and collect coverage
           command: mvn -B test
       - codecov/upload
-      - sonarcloud/scan
+      - run:
+          name: Analyze on SonarCloud
+          command: mvn verify sonar:sonar -Dsonar.projectKey=Crazy-pro_simple-web-app
 
 workflow:
   version: 2.1

@@ -11,8 +11,6 @@
     <properties>
         <maven.compiler.source>1.9</maven.compiler.source>
         <maven.compiler.target>1.9</maven.compiler.target>
-        <sonar.organization>crazy-pro</sonar.organization>
-        <sonar.host.url>https://sonarcloud.io</sonar.host.url>
         <argLine>-Djava.security.egd=file:/dev/./urandom</argLine>
     </properties>
 

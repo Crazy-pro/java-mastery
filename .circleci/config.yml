@@ -18,7 +18,7 @@ jobs:
       - codecov/upload
       - run:
           name: Analyze on SonarCloud
-          command: mvn verify sonar:sonar -Dsonar.projectKey=Crazy-pro_simple-web-app
+          command: mvn -X verify sonar:sonar -Dsonar.projectKey=Crazy-pro_simple-web-app
 
 workflow:
   version: 2.1

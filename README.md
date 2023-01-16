@@ -36,15 +36,16 @@ Test task for Godel Technologies Europe.
 
 [![CircleCI](https://circleci.com/gh/Crazy-pro/simple-web-app.svg?style=svg)](https://app.circleci.com/gh/Crazy-pro/simple-web-app)
 [![CodeCov](https://codecov.io/gh/Crazy-pro/simple-web-app/branch/master/graph/badge.svg)](https://codecov.io/gh/Crazy-pro/simple-web-app)
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=Crazy-pro_simple-web-app&metric=coverage)](https://sonarcloud.io/summary/new_code?id=Crazy-pro_simple-web-app)
 
 [![SonarCloud](https://sonarcloud.io/images/project_badges/sonarcloud-black.svg)](https://sonarcloud.io/summary/new_code?id=Crazy-pro_simple-web-app)
 
 [![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=Crazy-pro_simple-web-app&metric=ncloc)](https://sonarcloud.io/summary/new_code?id=Crazy-pro_simple-web-app)
 [![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=Crazy-pro_simple-web-app&metric=duplicated_lines_density)](https://sonarcloud.io/summary/new_code?id=Crazy-pro_simple-web-app)
 [![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=Crazy-pro_simple-web-app&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=Crazy-pro_simple-web-app)
-[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=Crazy-pro_simple-web-app&metric=coverage)](https://sonarcloud.io/summary/new_code?id=Crazy-pro_simple-web-app)
-[![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=Crazy-pro_simple-web-app&metric=vulnerabilities)](https://sonarcloud.io/summary/new_code?id=Crazy-pro_simple-web-app)
 [![Bugs](https://sonarcloud.io/api/project_badges/measure?project=Crazy-pro_simple-web-app&metric=bugs)](https://sonarcloud.io/summary/new_code?id=Crazy-pro_simple-web-app)
+[![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=Crazy-pro_simple-web-app&metric=vulnerabilities)](https://sonarcloud.io/summary/new_code?id=Crazy-pro_simple-web-app)
+
 [![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=Crazy-pro_simple-web-app&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=Crazy-pro_simple-web-app)
 [![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=Crazy-pro_simple-web-app&metric=reliability_rating)](https://sonarcloud.io/summary/new_code?id=Crazy-pro_simple-web-app)
 [![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=Crazy-pro_simple-web-app&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=Crazy-pro_simple-web-app)

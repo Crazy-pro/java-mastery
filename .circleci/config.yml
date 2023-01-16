@@ -19,8 +19,7 @@ jobs:
       - sonarcloud/scan
 
 workflow:
-  version: 2.1
-  build-test:
+  build-test-scan:
     jobs:
       - build:
           context: SonarCloud

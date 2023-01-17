@@ -32,7 +32,7 @@ Test task for Godel Technologies Europe.
 - Database: MySQL;
 - Message Broker: ActiveMQ;
 - Tools: JUnit 4, Mockito, Lombok, Postman, Swagger 2, Maven, Git, Docker, JDBC, JPA, JMS, HTTPs, XML, YAML, JSON;
-- Others: GitHub, CircleCI, CodeCov.
+- Others: GitHub, CircleCI, CodeCov, SonarCloud.
 
 [![CircleCI](https://circleci.com/gh/Crazy-pro/simple-web-app.svg?style=svg)](https://app.circleci.com/gh/Crazy-pro/simple-web-app)
 [![CodeCov](https://codecov.io/gh/Crazy-pro/simple-web-app/branch/master/graph/badge.svg)](https://codecov.io/gh/Crazy-pro/simple-web-app)

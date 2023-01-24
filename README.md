@@ -14,9 +14,11 @@ Test task for Godel Technologies Europe.
 1. Install the latest version of docker if you still haven't done it.
 2. Run ActiveMq Docker Container in terminal using instructions below:
    - docker pull rmohr/activemq
-   - docker run -p 61616:61616 -p 8161:8161 rmohr/activemq
-3. Run MySQL Docker Container or just use the PC client MySQL Workbench.
-4. Execute script.sql.
+   - docker run --name activemqmb -p 61616:61616 -p 8161:8161 rmohr/activemq
+3. Run MySQL Docker Container or just use the PC client MySQL Workbench:
+    - docker pull mysql
+    - docker run --name mysqldb -p 3306:3306 -e MYSQL_USER=mysql -e MYSQL_PASSWORD=admin -d mysql
+4. Connect to the DataBase and execute src/main/resources/script.sql.
 5. Run the application and check end-points work using Postman client or this URL:
    - http://localhost:8080/swagger-ui.html
   
@@ -32,7 +34,7 @@ Test task for Godel Technologies Europe.
 - Database: MySQL;
 - Message Broker: ActiveMQ;
 - Tools: JUnit 4, Mockito, Lombok, Postman, Swagger 2, Maven, Git, Docker, JDBC, JPA, JMS, HTTPs, XML, YAML, JSON;
-- Others: GitHub, CircleCI, CodeCov, SonarCloud.
+- Others: GitHub, CircleCI, CodeCov, SonarLint, SonarCloud.
 
 [![CircleCI](https://circleci.com/gh/Crazy-pro/simple-web-app.svg?style=svg)](https://app.circleci.com/gh/Crazy-pro/simple-web-app)
 [![CodeCov](https://codecov.io/gh/Crazy-pro/simple-web-app/branch/master/graph/badge.svg)](https://codecov.io/gh/Crazy-pro/simple-web-app)

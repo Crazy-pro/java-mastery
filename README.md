@@ -16,8 +16,8 @@ Test task for Godel Technologies Europe.
    - docker pull rmohr/activemq
    - docker run --name activemqmb -p 61616:61616 -p 8161:8161 rmohr/activemq
 3. Run MySQL Docker Container or just use the PC client MySQL Workbench:
-    - docker pull mysql
-    - docker run --name mysqldb -p 3306:3306 -e MYSQL_USER=mysql -e MYSQL_PASSWORD=admin -d mysql
+   - docker pull mysql
+   - docker run --name mysqldb -p 3306:3306 -e MYSQL_USER=mysql -e MYSQL_PASSWORD=admin -d mysql
 4. Connect to the DataBase and execute src/main/resources/script.sql.
 5. Run the application and check end-points work using Postman client or this URL:
    - http://localhost:8080/swagger-ui.html

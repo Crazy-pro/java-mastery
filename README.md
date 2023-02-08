@@ -1,5 +1,5 @@
 ### Simple Web Application
-Test task for Godel Technologies Europe.
+Test task for Godel Technologies Europe. 
 
 
 
